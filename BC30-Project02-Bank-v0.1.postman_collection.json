@@ -7,87 +7,13 @@
 	},
 	"item": [
 		{
-			"name": "API-microservice-01",
+			"name": "API - microservice-01 - Product",
 			"item": [
-				{
-					"name": "Endpoint document_type",
-					"item": [
-						{
-							"name": "readAll",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8081/api/documenttypes",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8081",
-									"path": [
-										"api",
-										"documenttypes"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "create",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{ \"id\" : 5, \"code\" : \"DT-005\", \"name\" : \"OTR5\", \"description\" : \"Documento 5\" , \"state\" : \"1\"}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8081/api/documenttypes",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8081",
-									"path": [
-										"api",
-										"documenttypes"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
 				{
 					"name": "Endpoint product",
 					"item": [
 						{
-							"name": "readAll",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8091/api/products",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8091",
-									"path": [
-										"api",
-										"products"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "create",
+							"name": "01-create",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -128,7 +54,27 @@
 							"response": []
 						},
 						{
-							"name": "update",
+							"name": "02-readAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8091/api/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8091",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "03-update",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -170,7 +116,7 @@
 							"response": []
 						},
 						{
-							"name": "delete",
+							"name": "04-delete",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -206,6 +152,65 @@
 										"api",
 										"productbills",
 										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "API - microservice-02 - Client",
+			"item": [
+				{
+					"name": "Endpoint document_type",
+					"item": [
+						{
+							"name": "01-create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \"id\" : 5, \"code\" : \"DT-005\", \"name\" : \"OTR5\", \"description\" : \"Documento 5\" , \"state\" : \"1\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/documenttypes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"documenttypes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "02-readAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/api/documenttypes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"documenttypes"
 									]
 								}
 							},
