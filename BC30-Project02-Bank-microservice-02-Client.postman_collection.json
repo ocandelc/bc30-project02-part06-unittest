@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "030a2bcb-8049-483b-877a-46bf94669bde",
+		"name": "BC30-Project02-Bank-microservice-02-Client",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22592653"
+	},
+	"item": [
+		{
+			"name": "Endpoint document_type",
+			"item": [
+				{
+					"name": "01-create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id\" : 5, \"code\" : \"DT-005\", \"name\" : \"OTR5\", \"description\" : \"Documento 5\" , \"state\" : \"1\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/documenttypes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"documenttypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "02-readAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/documenttypes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"documenttypes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
