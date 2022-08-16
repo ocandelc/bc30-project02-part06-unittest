@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "030a2bcb-8049-483b-877a-46bf94669bde",
+		"_postman_id": "0d9ee9b5-9dd6-4b66-af15-fef2d56c2b47",
 		"name": "BC30-Project02-Bank-microservice-02-Client",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "22592653"
+		"_exporter_id": "22634807"
 	},
 	"item": [
 		{
@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \"id\" : 5, \"code\" : \"DT-005\", \"name\" : \"OTR5\", \"description\" : \"Documento 5\" , \"state\" : \"1\"}",
+							"raw": "{ \r\n    \"id\" : 5, \r\n    \"codeClient\" : \"DT-005\", \r\n    \"staffNameFirst\" : \"Test001\", \r\n    \"staffNameSecond\" : \"test 001\" , \r\n    \"staffSurnameSecond\" : \"OMG\"\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -24,15 +24,60 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/api/documenttypes",
+							"raw": "http://localhost:8092/api/clients/create",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8092",
 							"path": [
 								"api",
-								"documenttypes"
+								"clients",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "03-update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"codeClient\" : \"DT-005\", \r\n    \"staffNameFirst\" : \"Silvia\", \r\n    \"staffNameSecond\" : \"Palamar\" , \r\n    \"staffSurnameSecond\" : \"OMG\",\r\n    \"staffCellphone\" : \"0000999\", \r\n    \"staffAddress\" : \"Fake Street 123\", \r\n    \"businessTelephone\" : \"9908889\" , \r\n    \"businessTradeName\" : \"OMG\"\r\n    }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8092/api/clients/updateById/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"api",
+								"clients",
+								"updateById",
+								"5"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -53,6 +98,49 @@
 							"path": [
 								"api",
 								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "04-delete",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const dateNow= new Date();\r",
+									"pm.environment.set('currentDate', dateNow.toISOString());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id\" : 2, \"code\" : \"PB-002\", \"description\" : \"Cuenta Y Corriente\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8092/api/clients/deleteById/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"api",
+								"clients",
+								"deleteById",
+								"5"
 							]
 						}
 					},
