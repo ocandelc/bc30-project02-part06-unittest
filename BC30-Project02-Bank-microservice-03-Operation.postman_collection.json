@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "c8b5df74-1d30-48e6-8e7c-bd019121ebe4",
+		"_postman_id": "0d4d39a3-f592-4591-972d-e4b1b76a4f74",
 		"name": "BC30-Project02-Bank-microservice-03-Operation",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "22634807"
+		"_exporter_id": "22592653"
 	},
 	"item": [
 		{
@@ -28,7 +28,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \"id\" : \"2\", \"codePassiveOperation\" : \"PB-002\", \"name\" : \"Corriente\", \"description\" : \"Cuenta Corriente\" , \"balanceCurrent\" : \"0\", \"balanceMove\" : \"0\", \"state\" : \"1\", \"balanceCommission\" : \"0\", \"operationDate\" : \"{{currentDate}}\", \"idOperationType\" : \"1\"}",
+							"raw": "{ \"id\" : 2, \"code\" : \"PB-002\", \"name\" : \"Corriente\", \"description\" : \"Cuenta Corriente\" , \"ruleMoveState\" : \"0\", \"ruleMoveNumber\" : \"\", \"state\" : \"1\", \"auditUserCreateName\" : \"oecandela\", \"auditUserCreateDate\" : \"{{currentDate}}\", \"auditUserCreateIp\" : \"192.168.1.1\", \"auditUserUpdateName\" : \"\", \"audituserUpdateDate\" : null, \"auditUserUpdateIp\" : \"\"}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -36,16 +36,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8093/api/passiveoperations/create",
+							"raw": "http://localhost:8081/api/productbills",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8093",
+							"port": "8081",
 							"path": [
 								"api",
-								"passiveoperations",
-								"create"
+								"productbills"
 							]
 						}
 					},
@@ -72,6 +71,28 @@
 					"response": []
 				},
 				{
+					"name": "02-readByCodeOperation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8093/api/passiveoperations/findByCodePassiveOperation/PO-0000000001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8093",
+							"path": [
+								"api",
+								"passiveoperations",
+								"findByCodePassiveOperation",
+								"PO-0000000001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "03-update",
 					"event": [
 						{
@@ -90,7 +111,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \"id\" : \"2\", \"codePassiveOperation\" : \"PB-002\", \"name\" : \"Corriente\", \"description\" : \"Cuenta Corriente\" , \"balanceCurrent\" : \"10\", \"balanceMove\" : \"0\", \"state\" : \"1\", \"balanceCommission\" : \"0\", \"operationDate\" : \"{{currentDate}}\", \"idOperationType\" : \"1\"}",
+							"raw": "{ \"id\" : 2, \"code\" : \"PB-002\", \"description\" : \"Cuenta Y Corriente\"}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -98,16 +119,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8093/api/passiveoperations/update/2",
+							"raw": "http://localhost:8081/api/productbills/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8093",
+							"port": "8081",
 							"path": [
 								"api",
-								"passiveoperations",
-								"update",
+								"productbills",
 								"2"
 							]
 						}
@@ -133,7 +153,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{ \"id\" : 2, \"code\" : \"PB-002\", \"description\" : \"Cuenta Y Corriente\"}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -141,16 +161,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8093/api/passiveoperations/delete/2",
+							"raw": "http://localhost:8081/api/productbills/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8093",
+							"port": "8081",
 							"path": [
 								"api",
-								"passiveoperations",
-								"delete",
+								"productbills",
 								"2"
 							]
 						}
